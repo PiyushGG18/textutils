@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <>
-      <Routes>
+      <Router>
         <Navbar
           title="TextUtils"
           aboutText="About textUtils"
@@ -42,19 +42,21 @@ function App() {
         />
         <Alert alert={alert} />
         <div className="container my-3">
-          <Route
-            path="/"
-            element={
-              <TextForm
-                showAlert={showAlert}
-                heading="Enter the text to analyze"
-                mode={mode}
-              />
-            }
-          />
-          <Route path="/about" element={<About />} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <TextForm
+                  showAlert={showAlert}
+                  heading="Enter the text to analyze"
+                  mode={mode}
+                />
+              }
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </div>
-      </Routes>
+      </Router>
     </>
   );
 }
